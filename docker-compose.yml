@@ -5,8 +5,16 @@ services:
     container_name: postgress
     restart: always
     ports:
-      - 5435:5432
+      - 5432:5432
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: nestjs
+  app: 
+    image: testdocker
+    container_name: testdocker
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - .env_deployment
